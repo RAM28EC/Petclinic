@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage("Git checkout ") {
             steps{
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/RAM28EC/Petclinic.git'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/RAM28EC/Petclinic.git']])
             }
         }
         stage("Compile") {

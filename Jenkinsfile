@@ -5,8 +5,7 @@ pipeline {
     }
     environment {
         SCANNER_HOME=tool 'sonar-scanner'
-        url = 'https://registry.hub.docker.com'
-        credentialsId = 'docker'
+        
         
     }
     stages {
@@ -29,7 +28,7 @@ pipeline {
             steps{
                 withSonarQubeEnv('sonar-server') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
-                    -Dsonar.host.url=http://13.233.253.161:9000 \
+                    -Dsonar.host.url=http://13.235.238.77:9000 \
                     -Dsonar.java.binaries=. \
                     -Dsonar.projectKey=Petclinic '''
     

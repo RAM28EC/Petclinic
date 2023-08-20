@@ -51,10 +51,10 @@ pipeline {
         
         stage("Docker build and push") {
             steps{
-                withDockerRegistry(url, credentialsId){
+                withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                     sh "docker build -t pet-clinic186 . "
-                    sh "docker tag pet-clinic186  28cloud/pet-clinic186:latest "
-                    sh "docker push 28cloud/pet-clinic186:latest "
+                    sh "docker tag pet-clinic186  28cloud/pet-clinic186:v123 "
+                    sh "docker push 28cloud/pet-clinic186:123 "
                 }
             }
         }
